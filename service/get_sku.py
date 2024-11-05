@@ -1,10 +1,11 @@
 from common.request_util import SendRequest
 from configparser import ConfigParser
 
-def get_skuList(shopId="1691277887041120926",platform="lazada",messageItemIds="3673558046"):
+
+def get_skuList(shopId="1691277887041120926",platform="lazada",searchField="",searchValue=""):
     test_url = "https://dk-test1.meiyunji.net/api/v1/dk/product/list"
     test_method = 'post'
-    test_body = {"shopId":shopId,"platform":platform,"messageItemIds":messageItemIds,"pageSize":200,"pageNo":1}
+    test_body = {"shopId":shopId,"platform":platform,"pageSize":200,"pageNo":1,"searchField":searchField,"searchValue":searchValue}
     config = ConfigParser()
     config.read('config/conf.ini')
     token = 'token='+config.get('token','token')
