@@ -6,7 +6,7 @@ import requests
 
 class SendRequest:
 
-    def __init__(self, url, method, body):
+    def __init__(self, url, method, body, token=None):
         """
         url:不带host的url地址 ,必填参数
         method:请求方法如 get、post、delete ,必填参数
@@ -15,7 +15,7 @@ class SendRequest:
         self._url = url
         self._method = method
         self._body = body
-        self._token = 'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2IjoxLCJpZCI6IjM5OTI2Njc4OTQzNjk0ODQ4MCIsImRhdGEiOnsidWlkIjoiMzk5MjY2Nzg5NDM2OTQ4NDgwIiwicHVpZCI6IjM5OTI2Njc4OTQzNjk0ODQ4MCIsImZ1bmN0aW9uYWxUZXN0Ijoid2hhdHNBcHAsc2hvcGlmeSxsaXZlY2hhdCxzZW5zaXRpdmVXb3JkLEltcG9ydGFudFRYLGFhYSxULVByZXZpZXcsc210YXV0aCxzZWFyY2hKTCxyZXR1cm5ERCxnZHNwLGFpb25kdXR5LG5vLXJlcGx5LG5ld3RyYW5zbGF0ZSxBSVZpZGVvLGxhemFkYVZvdWNoZXIsQnVsa0ZTLGdyb3VwQ2hhdE1ha2VvdmVyRm9yTGF6YWRhLGdyb3VwQ2hhdE1ha2VvdmVyRm9yU2hvcGVlLGdyb3VwQ2hhdE1ha2VvdmVyRm9yVGlrdG9rLGdyb3VwQ2hhdE1ha2VvdmVyRm9yVG9rb3BlZGlhLGdyb3VwQ2hhdE1ha2VvdmVyRm9yRGFyYXosZmxvdyx1bmlmZWRERCxBSW1hcmssVGlrVG9rVm91Y2hlcixpbnZpdGVmb2xsb3csU3RhdHVzUGVuZGluZyxUaWtUb2tSZXZlcnNlT3JkZXIsU2hvcGVlUmV2ZXJzZU9yZGVyIn0sImlhdCI6MTczMDAxMjg1MywiZXhwIjoyNDIxMjEyODUzfQ.H_N8rtFVsiVRyLxFeQEf2LUV6C5Zybdm9JLwPIPhcE8;'
+        self._token = token
 
     #发送请求
     def send_request(self, content_type="application/json"):
