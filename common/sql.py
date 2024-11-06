@@ -9,7 +9,6 @@ class Mysql:
             test1 = self._get_sql_conf()
             self._conn = pymysql.connect(**test1) # 连接数据库，配置参数
             self._cursor = self._conn.cursor() # 创建一个游标，用来执行查询
-            self._get_field() # 获取此表中的字段名
         except Exception as e:
             raise Exception(f"数据库连接失败！！！\n请检查表名、配置参数是否正确或检查本地数据库是否已启动！\n{e}")
     #获取数据库配置
@@ -31,13 +30,6 @@ class Mysql:
     # 获取_cursor对象
     def get_cursor(self):
         return self._cursor
-    # 获取此表中的字段名
-    def _get_field(self):
-        self._cursor.execute(f"select * from {self._operate_tablename}")
-        self._desc = self._cursor.description
-        self._field_ = []
-        for field in self._desc:
-            self._field_.append(field[0])
     # 执行sql语句
     def _sql(self,sql):
         try:
