@@ -4,7 +4,15 @@ from configparser import ConfigParser
 def get_product_total(shopId,platform,searchField="",searchValue=""):
     test_url = "https://dk-test1.meiyunji.net/api/v1/dk/product/list"
     test_method = 'post'
-    test_body = {"shopId":shopId,"platform":platform,"pageSize":200,"pageNo":1,"searchField":searchField,"searchValue":searchValue}
+    searchF = ""
+    if searchField =="商品名":
+        searchF = "platform_product_name"
+    elif searchField == "商品ID":
+        searchF = "platform_product_id"
+    elif searchField == "SKU":
+        searchF = "platform_product_sku"
+    test_body = {"shopId":str(shopId),"platform":platform,"pageSize":200,"pageNo":1,"searchField":searchF,"searchValue":searchValue}
+    print(test_body)
     config = ConfigParser()
     config.read('config/conf.ini')
     token = 'token='+config.get('token','token')

@@ -6,7 +6,7 @@ from common.excel_util import read_excel
 class TestSku(object):
     @pytest.mark.parametrize("args",read_excel('testdata/sku.xlsx'))
     #获取sku列表
-    def test_search_product(self,args):
+    def test_search_product(self,get_token,args):
         p_total = get_product_total(args["shopId"],args["平台"],args["搜索类型"],args["搜索文本"])
         print(p_total)
         assert p_total == args["预期总条数"]

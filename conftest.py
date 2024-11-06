@@ -2,7 +2,7 @@ import pytest
 import common.request_util as request_util
 from configparser import ConfigParser
 
-# @pytest.fixture(scope='session')
+@pytest.fixture(scope='session')
 def get_token():
     login_url = "https://dk-test1.meiyunji.net/api/v1/user/userLoginV2"
     login_body = {"email":"testvip@lazada.sg","password":"+lykrBlAGizUeE3fbVlgSQ=="}
