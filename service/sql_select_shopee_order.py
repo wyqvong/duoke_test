@@ -1,5 +1,5 @@
 from common.sql import Mysql
-from get_dbTable import get_dbTable_by_puid
+from service.get_dbTable import get_dbTable_by_puid
 import json
 
 def select_shopee_order_by_puid(puid:int):
